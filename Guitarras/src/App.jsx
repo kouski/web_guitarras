@@ -8,6 +8,11 @@ import Guitar from './components/Guitar';
 function App() {
   
 const [data, setData] = useState(db);
+const [cart, setCart] = useState([]);
+
+function addtoCart(item){
+    setCart(prevCart=>[...prevCart, item]);
+}
 
 
 
@@ -24,7 +29,11 @@ const [data, setData] = useState(db);
         <div className="row mt-5">
             {data.map((guitar)=>{
                 return <Guitar
+                key={guitar.id}
                 guitar={guitar}
+                cart={cart}
+                setCart={setCart}
+                addtoCart={addtoCart}
                 />
             })}
             
