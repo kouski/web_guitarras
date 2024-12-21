@@ -11,7 +11,20 @@ const [data, setData] = useState(db);
 const [cart, setCart] = useState([]);
 
 function addtoCart(item){
-    setCart(prevCart=>[...prevCart, item]);
+
+    const itemExist = cart.findIndex((guitar)=>guitar.id===item.id);
+    if(itemExist >= 0){
+        const updatedCart = [...cart];
+        updatedCart[itemExist].quantity++;
+        setCart(updatedCart);
+    }else{
+        item.quantity = 1;
+        setCart([...cart, item]);
+        console.log('Agregando artículo al carrito');
+    }
+
+
+    
 }
 
 
