@@ -23,9 +23,11 @@ function addtoCart(item){
         console.log('Agregando artículo al carrito');
     }
 
-
-    
 }
+
+function deleteItem(id){
+    const updatedCart = cart.filter((guitar)=>guitar.id !== id);
+    setCart(updatedCart)};
 
 
 
@@ -33,7 +35,12 @@ function addtoCart(item){
   return (
     <>
     
-    <Header />
+    <Header 
+        cart={cart}
+        deleteItem={deleteItem}
+        
+    
+    />
   
 
     <main className="container-xl mt-5">
