@@ -1,6 +1,6 @@
 
 
-function Header({cart, deleteItem}){
+function Header({cart, deleteItem, increaseQuantity,decreaseQuantity}){
     
     const isEmpty = cart.length === 0;
     const cartTotal = cart.reduce((total, guitar)=>total + guitar.price * guitar.quantity, 0);
@@ -56,6 +56,7 @@ function Header({cart, deleteItem}){
                                             <button
                                                 type="button"
                                                 className="btn btn-dark"
+                                                onClick={()=>decreaseQuantity(guitar.id)}
                                             >
                                                 -
                                             </button>
@@ -63,6 +64,7 @@ function Header({cart, deleteItem}){
                                             <button
                                                 type="button"
                                                 className="btn btn-dark"
+                                                onClick={()=>increaseQuantity(guitar.id)}
                                             >
                                                 +
                                             </button>
